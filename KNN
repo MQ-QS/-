@@ -1,0 +1,36 @@
+#knn
+
+from numpy import *
+
+def classify0（inX，dataSet，labels，k）：
+  distances=(((inX-dataSet)**2).sum(axis=1))**0.5
+  sortedDistances=distances.argsort()
+  for i in range(k):
+    voteLabel=label[sortedDistances[i]]
+    classCount[voteLabel]=classCount.get(voteLabel,0)+1
+  
+  maxlabel=[0,-1]
+  for i in classCount.items:
+    if i[1]>maxlabel[1]:
+      maxlabel=i
+  return(maxlabel[0])
+
+def file2matrix(filename):
+  fr=open(filename)
+  strOfdata=fr.readlines()
+  numOfStr=len(strOfdata)
+  returnMatrix=zeros(numOfStr,3)
+  classLabelVector=[]
+  index=0
+  for line in strOfdata:
+    line=line.strip()
+    listFromLine=ling.split(',')
+    returnMatrix[index,:]=listFromLine[0:3]
+    classLabelVector.append[listFromLine[-1]]
+    index+=1
+    return returnMatrix,classLabelVector
+    
+def antoNorm(dateSet):
+  rangesOfDataSet=dataSet.max(0)-dataSet.min(0)
+  normDataSet=(dataSet-dataSet.min(0))/rangesOfDataSet
+  return normDataSet
