@@ -34,3 +34,5 @@ def antoNorm(dateSet):
   rangesOfDataSet=dataSet.max(0)-dataSet.min(0)
   normDataSet=(dataSet-dataSet.min(0))/rangesOfDataSet
   return normDataSet
+  
+def img2vector（filename）：
